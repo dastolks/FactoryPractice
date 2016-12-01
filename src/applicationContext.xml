@@ -17,11 +17,7 @@
 ">
     
 	<!-- Configure copier class using constructor injection of components -->
-	<bean id="copier" class="spring1.Copier">
-		<constructor-arg name="reader" ref="reader" />
-		<constructor-arg name="writer" ref="writer" />
-	</bean>
-        <bean id="TipService" class="factorypractice.lab.TipCalculator">
+        <bean id="TipService" class="factorypractice.lab.TipService">
             <constructor-arg name="f" ref="TipCalculator1" />
         </bean>
     
@@ -33,15 +29,17 @@
          -->
          
          
-        <bean id="TipCalculator1" class="factorypractice.lab.FoodServiceTipCalculator">
-            <coconstructor-arg name="q" value="GOOD" />
-            <coconstructor-arg name="billAmt" value="10" />
+        <bean id="TipCalculator1" class="factorypractice.lab.FoodServiceTipCalculator">           
+            <constructor-arg name="q" value="GOOD" />
+            <constructor-arg name="billAmt" value="10" />
+        </bean>
+        <bean id="TipCalculator2" class="factorypractice.lab.BaggageServiceTipCalculator">
+            <constructor-arg name="q" value="GOOD" />
+            <constructor-arg name="bags" value="5" />
         </bean>
 	<!-- 
             Configure components of Copier for injection. When you want to
             make a change, change the class name.
         -->
-	<bean id="reader" class="spring1.KeyboardReader" />
-	<bean id="writer" class="spring1.GuiWriter" />
-
+        
 </beans>

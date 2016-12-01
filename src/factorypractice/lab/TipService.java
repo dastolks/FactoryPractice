@@ -11,7 +11,11 @@ public class TipService {
         tipCalculator = TipCalculatorFactory.getTipCalcOfType(f, sq, d);
     }
     
-    public TipService(TipCalculator tipCalculator) {
+    public TipService(TipCalculator f){
+	this.tipCalculator = f;
+    }
+    
+    public void setCalc(TipCalculator tipCalculator) {
         this.tipCalculator = tipCalculator;
     }
     

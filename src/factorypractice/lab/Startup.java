@@ -1,5 +1,8 @@
 package factorypractice.lab;
 
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 public class Startup {
 
     public static void main(String[] args) {
@@ -8,7 +11,7 @@ public class Startup {
             one of several tip calculator strategy options.
         */
         TipCalculator calc = 
-                new BaggageServiceTipCalculator(ServiceQuality.GOOD, 5);
+                new FoodServiceTipCalculator(ServiceQuality.GOOD, 10);
         TipService mgr = new TipService(calc);
         double tip = mgr.getTip();
         System.out.println("The tip is calculated to be: " + tip);
@@ -30,8 +33,14 @@ public class Startup {
         System.out.println("The tip is calculated to be: " + tip2);       
         
         System.out.println("Version 3");
+        final AbstractApplicationContext ctx = 
+                new ClassPathXmlApplicationContext("applicationContext.xml");
+	TipService mgr3 = (TipService)ctx.getBean("TipService");
+	double tip3 = mgr3.getTip();
+	System.out.println("The tip is calculated to be: " + tip3);   
         
         
     }
 
+    
 }
