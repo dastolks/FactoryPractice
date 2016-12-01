@@ -25,9 +25,11 @@ public class Startup {
             information to a class that encapsulates the factory.
         */
         System.out.println("Version 2");
-        TipService mgr2 = new TipService(TipCalcTypes.FOOD, ServiceQuality.GOOD, 9);
+        TipService mgr2 = new TipService(TipCalcTypes.BAGGAGE, ServiceQuality.GOOD, 9);
         double tip2 = mgr2.getTip();
-        System.out.println("The tip is calculated to be: " + tip2);
+        System.out.println("The tip is calculated to be: " + tip2);       
+        
+        System.out.println("Version 3");
         
         
     }
